@@ -1,0 +1,29 @@
+<div layout="row">
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')">
+
+        <md-toolbar class="md-whiteframe-z1">
+            <h1>Skill Arena</h1>
+        </md-toolbar>
+
+        <md-list>
+            <md-list-item ng-repeat="item in menu">
+                <md-button ng-click="goto(item)" ng-class="{
+                            'selected' : item === selected }">
+                    {{item.title}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+
+    </md-sidenav>
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+        <md-toolbar layout="row" class="md-whiteframe-z1">
+            <md-button class="menu" hide-gt-md ng-click="toggleMenu()" aria-label="Show User List">
+                <md-icon md-svg-icon="menu" ></md-icon>
+            </md-button>
+            <h1 ui-view='heading'></h1>
+        </md-toolbar>
+        <div ui-view=''></div>
+    </div>
+</div>
